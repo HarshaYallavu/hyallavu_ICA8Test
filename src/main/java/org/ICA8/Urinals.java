@@ -9,18 +9,17 @@ public class Urinals {
 
             System.out.println("choose one form to input the string:\n1.keyboard\n2.File");
             int option=sc.nextInt();
-            String inputstr="";
+            ArrayList<String> inputstr=new ArrayList<>();
             if(option==1)
-                inputstr = op.getString_keyboard();
+                inputstr.add(op.getString_keyboard());
             else
-                inputstr=op.getString_keyboard();
-
-        if (op.checkString(inputstr)){
-            System.out.println("Entered occupancy input format is correct");
+                inputstr.add(op.getString_keyboard());
+        for(int i=0;i<inputstr.size();i++) {
+            if (op.checkString(inputstr.get(i)) /*&& op.validateString(inputstr.get(i))*/){
+                System.out.println("Entered occupancy input is formatted and validated");
+            } else {
+                System.out.println(-1 + " Entered occupancy input is incorrect");
+            }
         }
-        else{
-            System.out.println(-1+" Entered occupancy input format is incorrect");
-        }
-
     }
 }
