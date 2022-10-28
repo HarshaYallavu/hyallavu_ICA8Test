@@ -26,16 +26,16 @@ public class UrinalsTest {
         Assertions.assertTrue(3==op.countUrinals("00000"),"incorrect number of available urinals");
     }
     @Test
-    @DisplayName("verify if the file exist or not")
+    @DisplayName("verify whether file exist or not")
     void fileExistTest(){
         System.out.println("====== Harsha Vardhan Yallavula == TEST FOURTH EXECUTED =======");
-        Assertions.assertTrue(true==op.fileExist(new File("./src/main/resources/Rule.txt")),"File is not empty");
+        Assertions.assertTrue(true==op.fileExist(new File("./src/main/resources/outputs/Rule.txt")),"File doesn't exist");
     }
     @Test
     @DisplayName("verify whether a file is empty or not")
     void emptyFileTest(){
         System.out.println("====== Harsha Vardhan Yallavula == TEST FIVE EXECUTED =======");
-        Assertions.assertTrue(true==op.emptyFile(new File("./src/main/resources/demo.txt")),"File doesn't exist");
+        Assertions.assertTrue(true==op.emptyFile(new File("./src/main/resources/demo.txt")),"File is not empty");
     }
     @Test
     @DisplayName("check if there are any Bad Name files in the output directory")

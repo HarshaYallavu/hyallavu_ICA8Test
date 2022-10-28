@@ -14,6 +14,7 @@ public class Urinals {
                 if(str.equals("-1"))
                     break;
                 else {
+                    inputstr=new ArrayList<>();
                     inputstr.add(str);
                     op.evaluateString(inputstr, option);
                 }
