@@ -31,6 +31,11 @@ public class Operations {
             return true;
         return false;
     }
+    public boolean emptyFile(File f){
+            if(f.length()>0)
+                return false;
+        return true;
+    }
     public void writeFile(ArrayList<String> str){
         try{
             String file="Rule";

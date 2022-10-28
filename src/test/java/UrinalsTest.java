@@ -29,7 +29,12 @@ public class UrinalsTest {
     @DisplayName("verify if the file exist or not")
     void fileExistTest(){
         System.out.println("====== Harsha Vardhan Yallavula == TEST THREE EXECUTED =======");
-        Assertions.assertTrue(true==op.fileExist(new File("./src/main/resources/Rule.txt")),"File doesn't exist");
+        Assertions.assertTrue(true==op.fileExist(new File("./src/main/resources/Rule.txt")),"File is not empty");
     }
-
+    @Test
+    @DisplayName("verify whether a file is empty or not")
+    void emptyFileTest(){
+        System.out.println("====== Harsha Vardhan Yallavula == TEST FOURTH EXECUTED =======");
+        Assertions.assertTrue(true==op.emptyFile(new File("./src/main/resources/Rule.txt")),"File doesn't exist");
+    }
 }
