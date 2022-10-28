@@ -11,7 +11,7 @@ public class Operations {
     public ArrayList<String> getString_file(){
         ArrayList<String> str=new ArrayList<>();
         try {
-            File f = new File("./src/main/resources/urinal.txt");
+            File f = new File("./src/main/resources/inputs/urinal.txt");
             if(!fileExist(f))
                 System.out.println("File is not present");
             BufferedReader in = new BufferedReader(new FileReader(f));
@@ -36,17 +36,25 @@ public class Operations {
                 return false;
         return true;
     }
+    public boolean badNameFile(File f){
+        File[] files= f.listFiles();
+        for(File i:files){
+            if(!i.getName().contains("Rule"))
+                return true;
+        }
+        return false;
+    }
     public void writeFile(ArrayList<String> str){
         try{
             String file="Rule";
-            File f = new File("./src/main/resources/"+file+".txt");
+            File f = new File("./src/main/resources/outputs/"+file+".txt");
             if(fileExist(f)){
                 int i=1;
                 do{
                     if(!file.equals("Rule"))
                         file=file.substring(0,4);
                     file = file + String.valueOf(i);
-                    f=new File("./src/main/resources/"+file+".txt");
+                    f=new File("./src/main/resources/outputs/"+file+".txt");
                     i++;
                     if(fileExist(f))
                         continue;
