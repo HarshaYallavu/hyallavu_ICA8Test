@@ -29,7 +29,7 @@ public class UrinalsTest {
     @DisplayName("verify if the file exist or not")
     void fileExistTest(){
         System.out.println("====== Harsha Vardhan Yallavula == TEST THREE EXECUTED =======");
-        Assertions.assertTrue(true==op.fileExist(new File("./src/main/resources/xx.txt")),"File doesn't exist");
+        Assertions.assertTrue(true==op.fileExist(new File("./src/main/resources/Rule.txt")),"File doesn't exist");
     }
 
 }
