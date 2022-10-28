@@ -25,8 +25,11 @@ public class UrinalsTest {
         System.out.println("====== Harsha Vardhan Yallavula == TEST TWO EXECUTED =======");
         Assertions.assertTrue(3==op.countUrinals("00000"),"incorrect number of available urinals");
     }
+    @Test
+    @DisplayName("verify if the file exist or not")
     void fileExistTest(){
         System.out.println("====== Harsha Vardhan Yallavula == TEST THREE EXECUTED =======");
         Assertions.assertTrue(true==op.fileExist(new File("./src/main/resources/xx.txt")),"File doesn't exist");
     }
+
 }
