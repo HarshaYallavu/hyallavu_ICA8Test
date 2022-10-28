@@ -35,6 +35,6 @@ public class UrinalsTest {
     @DisplayName("verify whether a file is empty or not")
     void emptyFileTest(){
         System.out.println("====== Harsha Vardhan Yallavula == TEST FOURTH EXECUTED =======");
-        Assertions.assertTrue(true==op.emptyFile(new File("./src/main/resources/Rule.txt")),"File doesn't exist");
+        Assertions.assertTrue(true==op.emptyFile(new File("./src/main/resources/demo.txt")),"File doesn't exist");
     }
 }
