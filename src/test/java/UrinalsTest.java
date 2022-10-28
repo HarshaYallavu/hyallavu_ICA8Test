@@ -2,6 +2,8 @@ import org.ICA8.Operations;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import java.io.*;
+import java.util.*;
 
 public class UrinalsTest {
     Operations op=new Operations();
@@ -22,5 +24,9 @@ public class UrinalsTest {
     void countUrinalsTest(){
         System.out.println("====== Harsha Vardhan Yallavula == TEST TWO EXECUTED =======");
         Assertions.assertTrue(3==op.countUrinals("00000"),"incorrect number of available urinals");
+    }
+    void fileExistTest(){
+        System.out.println("====== Harsha Vardhan Yallavula == TEST THREE EXECUTED =======");
+        Assertions.assertTrue(true==op.fileExist(new File("./src/main/resources/xx.txt")),"File doesn't exist");
     }
 }

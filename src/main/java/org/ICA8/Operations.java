@@ -12,7 +12,7 @@ public class Operations {
         ArrayList<String> str=new ArrayList<>();
         try {
             File f = new File("./src/main/resources/urinal.txt");
-            if(f==null)
+            if(!fileExist(f))
                 System.out.println("File is not present");
             BufferedReader in = new BufferedReader(new FileReader(f));
             String line=in.readLine();
@@ -26,15 +26,47 @@ public class Operations {
         }
         return str;
     }
-//    public void writeFile(ArrayList<String> str){
-//        try{
-//            File f = new File("./src/main/resources/Rule.txt");
-//            BufferedReader in = new BufferedReader(new FileReader(f));
-//        }
-//        catch (IOException e){
-//            e.getStackTrace();
-//        }
-//    }
+    public boolean fileExist(File f){
+        if(f.exists())
+            return true;
+        return false;
+    }
+    public void writeFile(ArrayList<String> str){
+        try{
+            String file="Rule";
+            File f = new File("./src/main/resources/"+file+".txt");
+            if(fileExist(f)){
+                int i=1;
+                do{
+                    if(!file.equals("Rule"))
+                        file=file.substring(0,4);
+                    file = file + String.valueOf(i);
+                    f=new File("./src/main/resources/"+file+".txt");
+                    i++;
+                    if(fileExist(f))
+                        continue;
+                    else{
+                        f.createNewFile();
+                        break;
+                    }
+
+                }while(true);
+            }
+            else{
+                f.createNewFile();
+            }
+            BufferedWriter bw=new BufferedWriter(new FileWriter(f));
+            int i=0;
+            while(i<str.size()){
+                bw.write(str.get(i)+"\n");
+                i++;
+            }
+            bw.close();
+        }
+        catch (IOException e){
+            e.getStackTrace();
+        }
+    }
     public boolean checkString(String str){
         if(str==""||str==null)
             return false;
@@ -72,7 +104,7 @@ public class Operations {
                         sr.add(String.valueOf(-1));
                     }
                 }
-              //  op.writeFile(sr);
+                op.writeFile(sr);
             }
             else if(option==1){
                 if (op.checkString(inputstr.get(0)) && op.validateString(inputstr.get(0))) {
