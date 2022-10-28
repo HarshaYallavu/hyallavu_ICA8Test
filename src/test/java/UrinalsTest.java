@@ -11,10 +11,10 @@ public class UrinalsTest {
         System.out.println("====== Harsha Vardhan Yallavula == TEST ONE EXECUTED =======");
         Assertions.assertTrue(op.checkString("0001"),"input contains char other than 1,0");
     }
-//    @Test
-//    @DisplayName("validate the string based on unwritten rule")
-//    void validateStringTest(){
-//        System.out.println("====== Harsha Vardhan Yallavula == TEST TWO EXECUTED =======");
-//        Assertions.assertTrue(op.validateString("0101"),"two or more people can urinate beside each other");
-//    }
+    @Test
+    @DisplayName("validate the string based on unwritten rule")
+    void validateStringTest(){
+        System.out.println("====== Harsha Vardhan Yallavula == TEST TWO EXECUTED =======");
+        Assertions.assertTrue(op.validateString("0101"),"two or more people can urinate beside each other");
+    }
 }

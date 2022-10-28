@@ -11,7 +11,9 @@ public class Operations {
     public ArrayList<String> getString_file(){
         ArrayList<String> str=new ArrayList<>();
         try {
-            File f = new File("./src/main/resources/urinals.txt");
+            File f = new File("./src/main/resources/urinal.txt");
+            if(f==null)
+                System.out.println("File is not present");
             BufferedReader in = new BufferedReader(new FileReader(f));
             String line=in.readLine();
              while(line!=null){
@@ -24,8 +26,19 @@ public class Operations {
         }
         return str;
     }
+//    public void writeFile(ArrayList<String> str){
+//        try{
+//            File f = new File("./src/main/resources/Rule.txt");
+//            BufferedReader in = new BufferedReader(new FileReader(f));
+//        }
+//        catch (IOException e){
+//            e.getStackTrace();
+//        }
+//    }
     public boolean checkString(String str){
         if(str==""||str==null)
+            return false;
+        if(str.length()>20)
             return false;
         for(int i=0;i<str.length();i++){
             if(str.charAt(i)!='0'&& str.charAt(i)!='1') {
@@ -34,16 +47,68 @@ public class Operations {
         }
         return true;
     }
-//    public boolean validateString(String str){
-//        if(str==""||str==null)
-//            return false;
-//
-//        for(int i=1;i<str.length()-1;i++){
-//            if(str.charAt(i)=='1'){
-//                if(str.charAt(i-1)=='1' || str.charAt(i+1)=='1')
-//                    return false;
+    public boolean validateString(String str){
+        if(str==""||str==null)
+            return false;
+
+        for(int i=1;i<str.length()-1;i++){
+            if(str.charAt(i)=='1'){
+                if(str.charAt(i-1)=='1' || str.charAt(i+1)=='1')
+                    return false;
+            }
+        }
+        return true;
+    }
+    public void evaluateString(ArrayList<String> inputstr, int option){
+        Operations op=new Operations();
+            if (option == 2) {
+                ArrayList<String> sr=new ArrayList<>();
+                for (int i = 0; i < inputstr.size(); i++) {
+                    if (op.checkString(inputstr.get(i)) && op.validateString(inputstr.get(i))) {
+                        System.out.println("Input String is Formatted and Validated");
+//                        int count = op.countUrinals(inputstr.get(i));
+//                        sr.add(String.valueOf(count));
+                    } else {
+                        sr.add(String.valueOf(-1));
+                    }
+                }
+//                op.writeFile(sr);
+            }
+            else if(option==1){
+                if (op.checkString(inputstr.get(0)) && op.validateString(inputstr.get(0))) {
+                    System.out.println("Input String is Formatted and Validated");
+//                    int count = op.countUrinals(inputstr.get(0));
+//                    System.out.println(count);
+                } else {
+                    System.out.println(-1);
+                }
+            }
+    }
+//    public int countUrinals(String str){
+//        int count=0;
+//        char[] ch=str.toCharArray();
+//        if(ch[0]=='0'){
+//            if(ch.length>1 && ch[1]=='0'){
+//                ch[0]='1';
+//                count++;
+//            }
+//            if(ch.length==1) {
+//                ch[0] = '1';
+//                count++;
 //            }
 //        }
-//        return true;
+//        for(int i=1;i<ch.length-1;i++){
+//            if(ch[i]=='0'){
+//                if(ch[i-1]=='0' && ch[i+1]=='0')
+//                    ch[i]='1';
+//                else if(ch[i-1]=='1' && ch[i+1]=='0'&& i+1==ch.length-1)
+//                    ch[i+1]='1';
+//                else
+//                    continue;
+//                count++;
+//            }
+//        }
+//        return count;
 //    }
+
 }
