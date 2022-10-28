@@ -17,4 +17,10 @@ public class UrinalsTest {
         System.out.println("====== Harsha Vardhan Yallavula == TEST TWO EXECUTED =======");
         Assertions.assertTrue(op.validateString("0101"),"two or more people can urinate beside each other");
     }
+    @Test
+    @DisplayName("verify the max count of available urinals from the list")
+    void countUrinalsTest(){
+        System.out.println("====== Harsha Vardhan Yallavula == TEST TWO EXECUTED =======");
+        Assertions.assertTrue(3==op.countUrinals("00000"),"incorrect number of available urinals");
+    }
 }

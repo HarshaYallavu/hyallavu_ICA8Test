@@ -65,50 +65,50 @@ public class Operations {
                 ArrayList<String> sr=new ArrayList<>();
                 for (int i = 0; i < inputstr.size(); i++) {
                     if (op.checkString(inputstr.get(i)) && op.validateString(inputstr.get(i))) {
-                        System.out.println("Input String is Formatted and Validated");
-//                        int count = op.countUrinals(inputstr.get(i));
-//                        sr.add(String.valueOf(count));
+                        //System.out.println("Input String is Formatted and Validated");
+                        int count = op.countUrinals(inputstr.get(i));
+                        sr.add(String.valueOf(count));
                     } else {
                         sr.add(String.valueOf(-1));
                     }
                 }
-//                op.writeFile(sr);
+              //  op.writeFile(sr);
             }
             else if(option==1){
                 if (op.checkString(inputstr.get(0)) && op.validateString(inputstr.get(0))) {
-                    System.out.println("Input String is Formatted and Validated");
-//                    int count = op.countUrinals(inputstr.get(0));
-//                    System.out.println(count);
+                    //System.out.println("Input String is Formatted and Validated");
+                    int count = op.countUrinals(inputstr.get(0));
+                    System.out.println(count);
                 } else {
                     System.out.println(-1);
                 }
             }
     }
-//    public int countUrinals(String str){
-//        int count=0;
-//        char[] ch=str.toCharArray();
-//        if(ch[0]=='0'){
-//            if(ch.length>1 && ch[1]=='0'){
-//                ch[0]='1';
-//                count++;
-//            }
-//            if(ch.length==1) {
-//                ch[0] = '1';
-//                count++;
-//            }
-//        }
-//        for(int i=1;i<ch.length-1;i++){
-//            if(ch[i]=='0'){
-//                if(ch[i-1]=='0' && ch[i+1]=='0')
-//                    ch[i]='1';
-//                else if(ch[i-1]=='1' && ch[i+1]=='0'&& i+1==ch.length-1)
-//                    ch[i+1]='1';
-//                else
-//                    continue;
-//                count++;
-//            }
-//        }
-//        return count;
-//    }
+    public int countUrinals(String str){
+        int count=0;
+        char[] ch=str.toCharArray();
+        if(ch[0]=='0'){
+            if(ch.length>1 && ch[1]=='0'){
+                ch[0]='1';
+                count++;
+            }
+            if(ch.length==1) {
+                ch[0] = '1';
+                count++;
+            }
+        }
+        for(int i=1;i<ch.length-1;i++){
+            if(ch[i]=='0'){
+                if(ch[i-1]=='0' && ch[i+1]=='0')
+                    ch[i]='1';
+                else if(ch[i-1]=='1' && ch[i+1]=='0'&& i+1==ch.length-1)
+                    ch[i+1]='1';
+                else
+                    continue;
+                count++;
+            }
+        }
+        return count;
+    }
 
 }

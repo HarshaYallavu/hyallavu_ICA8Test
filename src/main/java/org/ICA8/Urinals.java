@@ -6,7 +6,7 @@ public class Urinals {
         Scanner sc=new Scanner(System.in);
         Operations op=new Operations();
         ArrayList<String> inputstr=new ArrayList<>();
-        System.out.println("choose one form for input string:\n1.keyboard\n2.File.\n3.Exit");
+        System.out.println("choose one form for input string:\n1.keyboard\n2.File.");
         int option = sc.nextInt();
         if(option==1) {
             while(true) {
